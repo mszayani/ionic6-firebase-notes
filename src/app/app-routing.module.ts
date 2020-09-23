@@ -2,14 +2,23 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
+
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'dashboard',
     pathMatch: 'full'
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule)
+  },
+  {
+    path: 'add-note',
+    loadChildren: () => import('./pages/notes/add-note/add-note.module').then( m => m.AddNotePageModule)
+  },
+  {
+    path: 'edit-note',
+    loadChildren: () => import('./pages/notes/edit-note/edit-note.module').then( m => m.EditNotePageModule)
   },
 ];
 
