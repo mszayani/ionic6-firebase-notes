@@ -1,41 +1,61 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Dashboard</ion-title>
-    
+  <ion-toolbar color="primary">
+    <ion-title>Remind</ion-title>
   </ion-toolbar>
-  <ion-searchbar animated placeholder="Search notes"></ion-searchbar>
+
 </ion-header>
 
-<ion-content fullscreen="true" >
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col size="12">
-        <ion-item-sliding>
-          <ion-item>
-            <ion-label>
-              <h3>Title</h3>
-              <p>Content</p>
-            </ion-label>
-          </ion-item>
-          <ion-item-options>
-            <ion-item-option color="primary">
-              <ion-icon slot="start" name="create-outline"></ion-icon>
-              Edit
-            </ion-item-option>
-            <ion-item-option color="danger">
-              <ion-icon slot="start" name="trash-outline"></ion-icon>
-              Delete
+<ion-content>
+  <div class="home-bg">
+    <h1><b>Ajourd'hui</b></h1>
+    <h5>{{ current_date}}</h5>
+  <ion-card>
+    <ion-list *ngIf="addTask">
+      <form  [formGroup]="newNoteForm" (ngSubmit)="createNote(newNoteForm.value)">
+    <ion-item lines="none">
+      <ion-input formControlName="note_title" placeholder="Remind me to..."></ion-input>
+    </ion-item>
+    <div class="center">
+    <ion-button fill="solid"  shape="round" type="submit"> Save</ion-button>
+    <ion-button fill="outline" (click)="showForm()" shape="round" color="dark"> Close</ion-button>
+  </div>
+  </form>
+  </ion-list>
+</ion-card>
+<div class="note-list" *ngIf="!addTask">
+    <ion-card *ngFor="let note of notes">
+      <ion-item-sliding>
+
+        <ion-item lines="none">
+          <ion-checkbox color="primary" slot="start"></ion-checkbox>
+          <ion-label>
+            <h2 >{{note.payload.doc.data().note_title}}</h2>
+            <p>{{note.payload.doc.data().created_at | date }}</p>
+          </ion-label>
+          
+          <ion-item-options slot="end">
+            <ion-item-option color="transparent" >
+              <ion-icon color="danger" name="trash-outline" slot="icon-only"></ion-icon>
             </ion-item-option>
           </ion-item-options>
-        </ion-item-sliding>
 
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
-    <ion-fab-button color="success" (click)="presentModal()">
+        </ion-item>
+        </ion-item-sliding>
+     
+      
+    </ion-card>
+  </div>
+     
+        
+      
+    
+
+
+  <ion-fab vertical="bottom" *ngIf="!addTask" horizontal="end"  slot="fixed">
+    <ion-fab-button (click)="showForm()">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+  </div>
+
 </ion-content>

@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig: {
+    apiKey: "AIzaSyAe2h3i_ZD88RpM8FXXSkQ2QxkyYM85Zjw",
+    authDomain: "remind-app-1f160.firebaseapp.com",
+    databaseURL: "https://remind-app-1f160.firebaseio.com",
+    projectId: "remind-app-1f160",
+    storageBucket: "remind-app-1f160.appspot.com",
+    messagingSenderId: "648274008343",
+    appId: "1:648274008343:web:ce9b7951296a83e5dabf52",
+    measurementId: "G-DHYJEL122L"
+  }
 };
 
 /*

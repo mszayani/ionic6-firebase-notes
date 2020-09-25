@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-add-note',
@@ -8,13 +8,11 @@ import { ModalController } from '@ionic/angular';
 })
 export class AddNotePage implements OnInit {
 
-  constructor(public modalCtrl: ModalController) { }
+  constructor() { }
+
+
 
   ngOnInit() {
   }
-  dismiss(){
-    this.modalCtrl.dismiss({
-      'dismissed': true
-    });
-  }
+
 }

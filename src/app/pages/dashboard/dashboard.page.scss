@@ -1,7 +1,30 @@
-ion-header ion-content {
-    --background: #e3e3e3;
-   
+.home-bg {
+    padding: 1px;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../../../assets/img/bg-notes-2.jpg');
+    h1 {
+        color: #fff;
+        margin-left: 20px;
+        font-size: 30px;
+    }
+    h5 {
+        color: #5172ff;
+        margin-left: 20px;
+        margin-top: -7px;
+        font-size: medium;
+        margin-bottom: 15px;
+        text-transform: capitalize;
+    }
+
 }
-ion-title {
-    text-align: center;
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    ion-button {
+        font-size: 10px;
+    }
 }
